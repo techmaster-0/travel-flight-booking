@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin Dashboard - TravelBook</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sidebar {
+      min-height: 100vh;
+      background: #0d6efd;
+      color: white;
+    }
+
+    .sidebar a {
+      color: white;
+      text-decoration: none;
+      display: block;
+      padding: 10px 15px;
+      border-radius: 8px;
+    }
+
+    .sidebar a.active,
+    .sidebar a:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .content {
+      padding: 20px;
+      flex-grow: 1;
+      background: #f8f9fa;
+    }
+
+    .card {
+      transition: transform 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .footer {
+      background: #333;
+      color: #fff;
+      padding: 40px 20px 20px;
+      position: relative;
+      font-family: Arial, sans-serif;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 30px;
+      border-top: 1px solid #444;
+      padding-top: 15px;
+      font-size: 14px;
+      color: #aaa;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container-fluid">
+    <div class="row">
+      <!-- Sidebar -->
+      <nav class="col-md-3 col-lg-2 d-md-block sidebar p-3">
+        <h3 class="fw-bold">✈ TravelBook</h3>
+        <hr class="text-white">
+        <ul class="nav flex-column">
+          <li class="nav-item"><a class="nav-link" href="index.html">🏠 Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="admin.html">⚙ Admin</a></li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#addFlightModal">➕ Add Flight</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Main Content -->
+      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 content">
+        <div
+          class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+          <h1 class="h2">Admin Dashboard</h1>
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="row mb-4">
+          <div class="col-md-4">
+            <div class="card shadow-sm">
+              <div class="card-body">
+                <h5 class="card-title">Total Bookings</h5>
+                <p class="card-text fs-4 fw-bold text-primary">120</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card shadow-sm">
+              <div class="card-body">
+                <h5 class="card-title">Active Users</h5>
+                <p class="card-text fs-4 fw-bold text-success" id="userCount">85</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card shadow-sm">
+              <div class="card-body">
+                <h5 class="card-title">Flights Managed</h5>
+                <p class="card-text fs-4 fw-bold text-danger" id="flightCount">25</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bookings Table -->
+        <div class="card shadow-sm mb-4">
+          <div class="card-header bg-primary text-white">
+            <h5 class="mb-0">User Bookings</h5>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-striped align-middle">
+                <thead>
+                  <tr>
+                    <th>Booking ID</th>
+                    <th>User</th>
+                    <th>From</th>
+                    <th>To</th>
+                    <th>Date</th>
+                    <th>Passengers</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody id="adminBookingsList">
+                  <tr>
+                    <td>#1001</td>
+                    <td>John Doe</td>
+                    <td>New York</td>
+                    <td>Paris</td>
+                    <td>2025-10-15</td>
+                    <td>2</td>
+                    <td><span class="badge bg-success">Confirmed</span></td>
+                  </tr>
+                  <tr>
+                    <td>#1002</td>
+                    <td>Jane Smith</td>
+                    <td>Dubai</td>
+                    <td>London</td>
+                    <td>2025-11-01</td>
+                    <td>1</td>
+                    <td><span class="badge bg-warning">Pending</span></td>
+                  </tr>
+                  <tr>
+                    <td>#1003</td>
+                    <td>Alex Brown</td>
+                    <td>Delhi</td>
+                    <td>Toronto</td>
+                    <td>2025-10-20</td>
+                    <td>3</td>
+                    <td><span class="badge bg-danger">Cancelled</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- Add New Flight Modal -->
+  <div class="modal fade" id="addFlightModal" tabindex="-1" aria-labelledby="addFlightModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content shadow-lg border-0">
+        <div class="modal-header bg-primary text-white">
+          <h5 class="modal-title" id="addFlightModalLabel">Add New Flight ✈️</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body bg-light">
+          <form id="addFlightForm">
+            <div class="row mb-3">
+              <div class="col-md-4">
+                <label for="flightNumber" class="form-label">Flight Number</label>
+                <input type="text" class="form-control" id="flightNumber" name="flightNumber" required>
+              </div>
+              <div class="col-md-4">
+                <label for="departureCity" class="form-label">Departure City</label>
+                <select id="from" class="form-select" required>
+                  <option value="">Select Departure City</option>
+                  <option value="Delhi">Delhi, India</option>
+                  <option value="Mumbai">Mumbai, India</option>
+                  <option value="Dubai">Dubai, UAE</option>
+                  <option value="London">London, UK</option>
+                  <option value="New York">New York, USA</option>
+                  <option value="Tokyo">Tokyo, Japan</option>
+                </select>
+              </div>
+              <div class="col-md-4">
+                <label for="destinationCity" class="form-label">Destination City</label>
+                <select id="to" class="form-select" required>
+                  <option value="">Select Destination City</option>
+                  <option value="Delhi">Delhi, India</option>
+                  <option value="Mumbai">Mumbai, India</option>
+                  <option value="Dubai">Dubai, UAE</option>
+                  <option value="London">London, UK</option>
+                  <option value="New York">New York, USA</option>
+                  <option value="Tokyo">Tokyo, Japan</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-md-4">
+                <label for="basePrice" class="form-label">Base Price</label>
+                <input type="number" class="form-control" id="basePrice" name="basePrice" step="0.01" required>
+              </div>
+              <div class="col-md-4">
+                <label for="totalSeats" class="form-label">Total Seats</label>
+                <input type="number" class="form-control" id="totalSeats" name="totalSeats" required>
+              </div>
+            </div>
+            <div class="text-end">
+              <button type="button" class="btn btn-secondary me-2" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-success">Add Flight</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-bottom">
+      © 2025 TravelBook. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script src="/assets/js/admin.js"></script>
+
+</body>
+
+</html>

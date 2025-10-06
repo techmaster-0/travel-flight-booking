@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | TravelBook</title>
+
+   <link rel="icon" type="image/png" href="assets/images/logo.jpg">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+   .login-body{
+      font-family: 'Poppins', sans-serif;
+      background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e') no-repeat center center/cover;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .login-container {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 40px;
+      border-radius: 12px;
+      max-width: 400px;
+      width: 100%;
+      box-shadow: 0px 10px 30px rgba(0,0,0,0.3);
+    }
+    .login-container h2 {
+      color: #0077b6;
+      font-weight: 700;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    .form-control, .btn {
+      border-radius: 8px;
+    }
+    .btn-primary {
+      background-color: #0077b6;
+      border: none;
+    }
+    .btn-primary:hover {
+      background-color: #023e8a;
+    }
+    .text-center a {
+      color: #0077b6;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .text-center a:hover {
+      text-decoration: underline;
+    }
+    .input-group-text {
+      background-color: #0077b6;
+      color: white;
+      border: none;
+    }
+      
+    /* Gradient Background */
+.footer-modern {
+  background: linear-gradient(135deg, #0f252e, #294f5c, #306c85);
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Section Titles */
+.footer-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  border-left: 4px solid  #0763c6;
+  padding-left: 10px;
+  text-transform: uppercase;
+  color:  #0763c6;
+}
+
+/* Links */
+.footer-modern ul li {
+  margin-bottom: 10px;
+}
+.footer-modern ul li a {
+  color: #ddd;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+.footer-modern ul li a:hover {
+  color: #0091d4;
+  padding-left: 5px;
+}
+
+/* Social Icons */
+.social-link {
+  color: #ddd;
+  font-size: 16px;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.social-link i {
+  margin-right: 8px;
+  font-size: 18px;
+}
+
+.social-link:hover {
+   padding-left: 5px;
+  color: #0091d4; /* hover effect */
+}
+
+
+/* Footer Bottom */
+.footer-modern p {
+  font-size: 14px;
+  color: #ddd;
+}
+
+/* Scroll Button */
+#scrollTopBtn {
+  background:  #0091d4;
+  border: none;
+  transition: 0.3s;
+}
+#scrollTopBtn i {
+  color: #000;
+}
+#scrollTopBtn:hover {
+  background: #035d86;
+  color: white;
+}
+  </style>
+</head>
+<body>
+   <!-- 🔹 Top Contact Bar -->
+  <div class="top-bar  d-flex justify-content-between align-items-center px-3 py-2 border-bottom flex-wrap">
+    <div class="d-flex align-items-center flex-wrap small">
+      <span class="me-3"><a href=" tel:9820822253" style="color: black; text-decoration: none;"><i class="fa-solid fa-phone me-2"></i> +91 9820822253</a></span>
+      <span class="me-3"><i class="fa-solid fa-location-dot me-2"></i> Pune</span>
+      <span class="me-3"><a href="mailto:info@travelbook.com"  style="color: black; text-decoration: none;"><i class="fa-solid fa-envelope me-2"></i> info@travelbook.com</a></span>
+    </div>
+    <!-- <div class="d-flex align-items-center mt-2 mt-md-0">
+      <input type="text" class="form-control form-control-sm me-2" placeholder="Search Tours...">
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </div> -->
+    <div class="d-flex ms-3 social-icons mt-2 mt-md-0">
+      <a href="https://www.facebook.com/login/" class="text-dark me-3"><i class="fab fa-facebook"></i></a>
+      <a href="https://www.instagram.com/accounts/login/#" class="text-dark me-3"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.linkedin.com/login" class="text-dark me-3"><i class="fab fa-linkedin"></i></a>
+      <a href="https://www.linkedin.com/login" class="text-dark me-3"><i class="fab fa-x-twitter"></i></a>
+      <a href="https://www.youtube.com/" class="text-dark me-3"><i class="fab fa-youtube"></i></a>
+     
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top shadow">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">✈ TravelBook</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="booking.html">Book Flight</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          <li class="nav-item"><a class="nav-link active" href="login.html">Login</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+<section class="login-body">
+  <div class="login-container">
+    <h2><i class="bi bi-box-arrow-in-right"></i> Login</h2>
+    <form id="loginForm">
+      <div class="mb-3">
+        <label class="form-label">Email</label>
+        <div class="input-group">
+          <span class="input-group-text"><i class="bi bi-envelope-fill"></i></span>
+          <input type="email" class="form-control" placeholder="Enter your email" required>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Password</label>
+        <div class="input-group">
+          <span class="input-group-text"><i class="bi bi-lock-fill"></i></span>
+          <input type="password" class="form-control" placeholder="Enter your password" required>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary w-100 mb-3"><i class="bi bi-box-arrow-in-right"></i> Login</button>
+      <p class="text-center">Don’t have an account? <a href="register.html">Register</a></p>
+    </form>
+  </div>
+</section>
+
+
+<!-- Footer Section -->
+<footer class="footer-modern text-white pt-5">
+  <div class="container">
+    <div class="row">
+
+      <!-- Contact Information -->
+      <div class="col-md-3 mb-4">
+        <h5 class="footer-title">CONTACT INFORMATION</h5>
+        <p><i class="fa-solid fa-phone me-2"></i><a href="tel:9820822253" class="text-white text-decoration-none">+91 9820822253</a></p>
+        <p><i class="fa-solid fa-location-dot me-2"></i>Pune, India</p>
+        <p><i class="fa-solid fa-envelope me-2"></i><a href="mailto:info@travelbook.com" class="text-white text-decoration-none">info@TravelBook.com</a></p>
+      </div>
+
+      <!-- Company Links -->
+      <div class="col-md-3 mb-4">
+        <h5 class="footer-title">LINKS</h5>
+        <ul class="list-unstyled">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="booking.html">Book Flight</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <!-- Social Media -->
+      <div class="col-md-3 mb-4">
+  <h5 class="footer-title">FOLLOW US</h5>
+  <div class="d-flex flex-column align-items-start gap-3">
+    <a href="https://www.facebook.com/login/" class="social-link"><i class="fab fa-facebook-f"></i> Facebook</a>
+    <a href="https://www.instagram.com/accounts/login/#" class="social-link"><i class="fab fa-instagram"></i> Instagram</a>
+    <a href="https://www.linkedin.com/login" class="social-link"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+    <a href="https://www.youtube.com/" class="social-link"><i class="fab fa-youtube"></i> YouTube</a>
+  </div>
+</div>
+
+
+      <!-- Destinations -->
+      <div class="col-md-3 mb-4">
+        <h5 class="footer-title">DESTINATIONS</h5>
+        <ul class="list-unstyled">
+          <li><a href="booking.html">Arunachal Pradesh</a></li>
+          <li><a href="booking.html">Sikkim</a></li>
+          <li><a href="booking.html">Himachal Pradesh</a></li>
+          <li><a href="booking.html">Goa</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Footer Bottom -->
+   <!-- Footer Bottom -->
+<div class="d-flex justify-content-between align-items-center border-top border-light pt-3 mt-3 flex-wrap">
+  <p class="mb-0 text-white">&copy; 2025 TravelBook. All rights reserved.</p>
+  <p class="mb-0 text-white">Developed by Kavya Infoweb Pvt Ltd</p>
+</div>
+
+
+  </div>
+</footer>
+
+<!-- Scroll to Top Button -->
+<button id="scrollTopBtn" class="btn btn-danger rounded-circle position-fixed shadow" style="bottom: 20px; right: 20px; display: none;">
+  <i class="fa fa-arrow-up"></i>
+</button>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+
+  document.getElementById("loginForm").addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const email = document.querySelector('input[type="email"]').value.trim();
+    const password = document.querySelector('input[type="password"]').value.trim();
+
+    if (!email || !password) {
+      alert("Please enter both email and password!");
+      return;
+    }
+
+    const loginData = { email, password };
+
+    try {
+      const response = await fetch("http://localhost:8181/api/v1/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(loginData)
+      });
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(errorText || "Invalid credentials");
+      }
+
+      const data = await response.json();
+      console.log("✅ Login Success:", data);
+
+      e.target.reset();
+
+      alert(`Welcome ${data.fullName}! Redirecting...`);
+      localStorage.setItem("userEmail", data.email);
+      localStorage.setItem("userName", data.fullName);
+
+      window.location.href = "index.html";
+    } catch (error) {
+      alert("Login failed: " + error.message);
+      console.error("❌ Error:", error);
+    }
+  });
+</script>
+
+</body>
+</html>
